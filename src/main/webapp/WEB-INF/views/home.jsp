@@ -52,5 +52,18 @@ body {
 		</div>	
 
 	</form>
+	
+	<br>
+	
+	<form action="allCities" method="post">
+
+		<div class="card" width=20%>
+			<div class="card-header">Cities</div>
+			<div class="card-body">
+			<input class="btn btn-outline-secondary" type="submit" value="List All Cities" />
+			</div>
+		</div>	
+
+	</form>
 </body>
 </html>
