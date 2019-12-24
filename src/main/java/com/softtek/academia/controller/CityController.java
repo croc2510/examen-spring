@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.softtek.academia.entity.City;
+import com.softtek.academia.entity.State;
 import com.softtek.academia.service.CityService;
+import com.softtek.academia.service.StateService;
 
 @Controller
 public class CityController {
@@ -28,6 +30,9 @@ public class CityController {
 		this.cityService = cityService;
 	}
 
+	@Autowired
+	private StateService stateService;
+	
 	// Get All Cities
 	@RequestMapping(value = "/allCities", method = RequestMethod.POST)
 	public ModelAndView displayAllCities() {
@@ -43,6 +48,7 @@ public class CityController {
 	public ModelAndView displayNewCityForm() {
 		ModelAndView mv = new ModelAndView("addCity");
 		mv.addObject("headerMessage", "Add City Details");
+		mv.addObject("states", stateService.getAllStates());
 		mv.addObject("city", new City());
 		return mv;
 	}
@@ -68,6 +74,7 @@ public class CityController {
 		ModelAndView mv = new ModelAndView("/editCity");
 		City city = cityService.getCityByCityId(id);
 		mv.addObject("headerMessage", "Edit City Details");
+		mv.addObject("states", stateService.getAllStates());
 		mv.addObject("city", city);
 		return mv;
 	}

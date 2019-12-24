@@ -40,7 +40,7 @@
 				<tr>
 					<td>${city.city_id}</td>
 					<td>${city.description}</td>
-					<td>${city.state_id}</td>
+					<td>${city.state.description}</td>
 					<td><a href="${pageContext.request.contextPath}/editCity/${city.city_id}">Edit</a></td>
 
 					<td><a href="${pageContext.request.contextPath}/deleteCity/${city.city_id}">Delete</a></td>
